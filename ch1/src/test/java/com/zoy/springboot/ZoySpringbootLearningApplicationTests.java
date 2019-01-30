@@ -1,4 +1,4 @@
-package com.zoy.springboot.zoyspringbootlearning;
+package com.zoy.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

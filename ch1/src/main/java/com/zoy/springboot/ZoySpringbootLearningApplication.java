@@ -1,4 +1,4 @@
-package com.zoy.springboot.zoyspringbootlearning;
+package com.zoy.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
