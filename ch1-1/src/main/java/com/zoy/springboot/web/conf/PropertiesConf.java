@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Data // ·lombok插件
 //@ConfigurationProperties(prefix = "com.zoy.springboot")
 // ·方式一：@ConfigurationProperties()批量读取配置并绑定到 实体类。缺点，后缀名称与 实体类属性名称要一一对应，改动任意一个都会导致绑定不到
-public class NameConf {
+public class PropertiesConf {
     @Value("${com.zoy.springboot.name}") // ·方式二：@Value()单个绑定
     private String name;
     @Value("${com.zoy.springboot.birthday}")
