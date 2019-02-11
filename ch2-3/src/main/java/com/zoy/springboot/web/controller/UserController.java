@@ -1,6 +1,8 @@
 package com.zoy.springboot.web.controller;
 
 import com.zoy.springboot.web.model.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -43,9 +45,9 @@ public class UserController {
         if (null != user) {
             user.setName(userParam.getName());
             user.setAge(userParam.getAge());
-            return "success:put user by id";
+            return "success:update user by id";
         }
-        return "fail:put user by id";
+        return "fail:update user by id";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
