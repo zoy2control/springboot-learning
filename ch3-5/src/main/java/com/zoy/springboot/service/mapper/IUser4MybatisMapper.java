@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 /**
  * Created by zouzp on 2019/2/13.
  */
@@ -27,4 +29,13 @@ public interface IUser4MybatisMapper {
      */
     @Insert("INSERT INTO user_info(name, age) VALUES (#{name}, #{age})")
     int insert(@Param("name") String name, @Param("age") Integer age);
+
+    /**
+     * ·插入数据，入参为 对象
+     * @param user
+     * @return
+     */
+    @Insert("INSERT INTO user_info(name, age) VALUES (#{name}, #{age})")
+    int insertByUser(User4Mybatis user);
+
 }

@@ -10,6 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -33,6 +36,23 @@ public class IUser4MybatisMapperTest {
             // ·存在则直接判断数据值
             Assert.assertEquals(18, result.getAge().intValue());
         }
+        Assert.assertEquals(18, result.getAge().intValue());
+    }
+
+    @Test
+    @Rollback // ·测试结束回滚数据，保证测试单元每次运行的数据环境独立
+    public void testByUser() throws Exception{
+        // ·检验数据库是否已存在数据
+        User4Mybatis result = user4MybatisMapper.findByName("ccc");
+        if (null == result) {
+            User4Mybatis user = new User4Mybatis("ccc", 18);
+            // ·不存在则插入
+            user4MybatisMapper.insertByUser(user);
+        } else {
+            // ·存在则直接判断数据值
+            Assert.assertEquals(18, result.getAge().intValue());
+        }
+        result = user4MybatisMapper.findByName("ccc");
         Assert.assertEquals(18, result.getAge().intValue());
     }
 }
