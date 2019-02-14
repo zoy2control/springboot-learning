@@ -17,6 +17,7 @@ import java.util.Arrays;
 @Component
 public class WebLogAspectConf {
     private static final Logger logger = LoggerFactory.getLogger(WebLogAspectConf.class);
+
     /*
     * ·AOP同步问题:
     * 在WebLogAspect切面中，分别通过doBefore和doAfterReturning两个独立函数实现了切点头部和切点返回后执行的内容，若我们想统计请求的处理时间，
@@ -47,7 +48,7 @@ public class WebLogAspectConf {
         startTime.set(System.currentTimeMillis());// ·起始时间
     }
 
-    @AfterReturning(returning = "ret", pointcut = "webLog()")
+//    @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret) {
         logger.info("RETURNING : " + ret);
         logger.info("消耗时间 ： " + (System.currentTimeMillis() - startTime.get()));
